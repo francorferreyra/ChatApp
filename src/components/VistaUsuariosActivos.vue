@@ -16,14 +16,15 @@
 </template>
 
 <script>
-import {ref, computed} from 'vue'
+import {ref, computed, inject} from 'vue'
 import {db} from 'boot/firebase.js'
 import firebase from 'firebase'
 import { useAuth } from '@vueuse/firebase/useAuth';
 
+
 export default{
     setup() {
-        const uidSeleccionado = ref('mails')
+        const uidSeleccionado = inject('uidSeleccionado')
         const users = ref([])
         const { user } = useAuth(firebase.auth)
 
